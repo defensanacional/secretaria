@@ -228,118 +228,14 @@ button {
 </ol>
 
 
-  <form id="contactForm" action="enviar.php" method="POST" enctype="multipart/form-data">
-    <h2>Formulario de contacto</h2>
-
-    <label for="nombre">Nombre:</label>
-    <input type="text" name="nombre" id="nombre" required>
-
-    <label for="apellido">Apellido:</label>
-    <input type="text" name="apellido" id="apellido" required>
-
-    <label for="rfc_curp">RFC o CURP:</label>
-    <input type="text" name="rfc_curp" id="rfc_curp" required>
-
-    <label for="email">Email:</label>
-    <input type="email" name="email" id="email" required>
-
-    <label for="direccion">Dirección:</label>
-    <input type="text" name="direccion" id="direccion">
-
-    <label for="ciudad">Ciudad:</label>
-    <input type="text" name="ciudad" id="ciudad">
-
-    <label for="estado">Estado:</label>
-    <input type="text" name="estado" id="estado">
-
-    <label for="cp">Código Postal:</label>
-    <input type="text" name="cp" id="cp">
-
-    <label for="telefono">Teléfono:</label>
-    <input type="tel" name="telefono" id="telefono" pattern="[0-9]{10}" required>
-
-    <label for="pregunta">Pregunta:</label>
-    <textarea name="pregunta" id="pregunta"></textarea>
-
-    <label for="fecha_compra">Fecha de compra:</label>
-    <input type="date" name="fecha_compra" id="fecha_compra">
-
-    <label for="vehiculo_interes">Vehículo de interés:</label>
-    <input type="text" name="vehiculo_interes" id="vehiculo_interes" required>
-
-    <label for="banco">Institución bancaria emisora:</label>
-    <select name="banco" id="banco" required>
-      <option value="">--Selecciona un banco--</option>
-      <option>BBVA</option>
-      <option>Citibanamex</option>
-      <option>Banorte</option>
-      <option>HSBC</option>
-      <option>Santander</option>
-      <option>Scotiabank</option>
-      <option>Banco Azteca</option>
-      <option>Inbursa</option>
-      <option>Afirme</option>
-      <option>Banregio</option>
-      <option>Banco del Bajío</option>
-      <option>Otro</option>
-    </select>
-
-    <label for="ine_frente">INE o Pasaporte (Frente):</label>
-    <input type="file" name="ine_frente" id="ine_frente" accept="image/*,.pdf" required>
-
-    <label for="ine_reverso">INE (Reverso):</label>
-    <input type="file" name="ine_reverso" id="ine_reverso" accept="image/*,.pdf" required>
-
-    <input type="text" name="website" style="display:none"> <!-- honeypot -->
-
-    <button type="submit">Enviar</button>
-  </form>
-
-  <div id="mensaje" class="mensaje"></div>
-
-
-  <script>
-    document.getElementById("contactForm").addEventListener("submit", function(e) {
-      const ine1 = document.querySelector('input[name="ine_frente"]').files[0];
-      const ine2 = document.querySelector('input[name="ine_reverso"]').files[0];
-      const maxSize = 10 * 1024 * 1024;
-
-      if (!ine1 || !ine2) {
-        alert("Sube ambos lados del INE.");
-        e.preventDefault();
-        return;
-      }
-
-      const validTypes = ["image/jpeg", "image/png", "application/pdf"];
-      if (!validTypes.includes(ine1.type) || !validTypes.includes(ine2.type)) {
-        alert("Formatos permitidos: JPG, PNG, JPEG, PDF.");
-        e.preventDefault();
-        return;
-      }
-
-      if (ine1.size > maxSize || ine2.size > maxSize) {
-        alert("Cada archivo debe pesar menos de 10MB.");
-        e.preventDefault();
-        return;
-      }
-    });
-
-    const urlParams = new URLSearchParams(window.location.search);
-    const mensaje = document.getElementById("mensaje");
-    if (urlParams.get("success") === "1") {
-      mensaje.textContent = "Formulario enviado correctamente.";
-      mensaje.className = "mensaje exito";
-      mensaje.style.display = "block";
-    } else if (urlParams.get("error")) {
-      mensaje.textContent = "Hubo un error: " + urlParams.get("error");
-      mensaje.className = "mensaje error";
-      mensaje.style.display = "block";
-    }
-  </script>
-
-
-
-
+  <iframe 
+  src="https://mi-servidor.com/formulario.php" 
+  width="100%" 
+  height="1200" 
+  style="border: none;" 
+  frameborder="0" 
+  allow="clipboard-write">
+</iframe>
  <div class="row top-buffer"style="text-align: center;width: 100%;">
   <div class="col-md-12">
     <hr>
