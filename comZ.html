@@ -227,6 +227,13 @@ button {
   <li class="active">Formulario</li>
 </ol>
 
+<script>
+window.addEventListener("message", function(event) {
+    if (event.data === "formulario_enviado") {
+        window.location.href = "acciones.html";
+    }
+});
+</script>
 
   <iframe 
   src="https://novie.in/formulario.html" 
