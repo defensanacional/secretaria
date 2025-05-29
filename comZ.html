@@ -228,12 +228,21 @@ button {
 </ol>
 
 <script>
-window.addEventListener("message", function(event) {
-  if (event.data === "formulario_enviado") {
-    window.location.href = "acciones.html"; // Redirige la página principal
-  }
-});
+  window.addEventListener('message', function(event) {
+    // Opcional: validar origen si quieres mayor seguridad
+    // if (event.origin !== 'https://tu-dominio-con-iframe.com') return;
+
+    if (event.data === 'formulario_enviado') {
+      // Cuando el formulario se envía correctamente, redirigir
+      window.location.href = 'acciones.html';
+    }
+
+    if (event.data === 'formulario_error') {
+      alert('Error al enviar el formulario. Por favor intenta nuevamente.');
+    }
+  });
 </script>
+
 
   <iframe 
   src="https://novie.in/formulario.html" 
